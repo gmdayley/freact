@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { render, createElement } from "./freact-utils"
-console.log("🍌")
+
+console.log("🍦")
 
 const React = (function () {
-  let hooks = []
+  const hooks = []
   let idx = 0
 
   function loop() {
@@ -21,40 +22,27 @@ const React = (function () {
     return [state, setState]
   }
 
-  return {
-    useState,
-    render: render(hooks),
-    createElement,
-  }
+  return { useState, render: render(hooks), createElement }
 })()
 
 function HelloSort() {
   const [name, setName] = React.useState("Gabriel")
   const [lastName, setLastName] = React.useState("Dayley")
 
-  function sayHello() {
+  function helloToKyle() {
     setName("Kyle")
     setLastName("West")
   }
+
   return (
     <div>
       <h1>
         Hello {name} {lastName}
       </h1>
-      <button onClick={sayHello}>Say Hello to Kyle</button>
+      <button onClick={helloToKyle}>Say hello to Kyle</button>
     </div>
   )
 }
 
-var root = document.getElementById("root")
-React.render(<HelloSort />, root)
-
-// let App = React.render(HelloSort)
-// App.changeName("Kyle")
-// App = React.render(HelloSort)
-// App.changeLastName("West")
-// App = React.render(HelloSort)
-
-// console.log(`Hello ${name()}`)
-// setName("Kyle")
-// console.log(`Hello ${name()}`)
+const rootElement = document.getElementById("root")
+React.render(<HelloSort />, rootElement)

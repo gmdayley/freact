@@ -21,11 +21,7 @@ const React = (function () {
     return [state, setState]
   }
 
-  return {
-    useState,
-    render: render(hooks),
-    createElement,
-  }
+  return { useState, render: render(hooks), createElement }
 })()
 
 function HelloSort() {
@@ -36,6 +32,7 @@ function HelloSort() {
     setName("Kyle")
     setLastName("West")
   }
+
   return (
     <div>
       <h1>
@@ -46,15 +43,5 @@ function HelloSort() {
   )
 }
 
-var root = document.getElementById("root")
+const root = document.getElementById("root")
 React.render(<HelloSort />, root)
-
-// let App = React.render(HelloSort)
-// App.changeName("Kyle")
-// App = React.render(HelloSort)
-// App.changeLastName("West")
-// App = React.render(HelloSort)
-
-// console.log(`Hello ${name()}`)
-// setName("Kyle")
-// console.log(`Hello ${name()}`)
